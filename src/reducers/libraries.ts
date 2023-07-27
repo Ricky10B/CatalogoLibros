@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit'
 import type { PayloadAction } from '@reduxjs/toolkit'
-import { library } from '../../../books.json'
+import { library } from '../../books.json'
 import { ILibrary, IISBNProp } from '../interfaces/interfacesComponents'
 
 interface IInitialStateLibrary extends ILibrary {
