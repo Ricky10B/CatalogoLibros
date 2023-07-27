@@ -1,4 +1,3 @@
-import { TypesSetVisible } from '../context/VisibleListBook'
 import { useAppDispatch } from './store'
 import {
   changeVisibleListBook,
@@ -8,7 +7,7 @@ import {
 export function useVisibleListBook () {
   const dispatch = useAppDispatch()
 
-  const setVisible = ({ isSection, visible }: TypesSetVisible) => {
+  const setVisible = ({ isSection, visible }: { isSection: boolean, visible: boolean }) => {
     if (isSection) {
       dispatch(changeVisibleSection({ visible }))
     } else {
