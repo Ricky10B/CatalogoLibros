@@ -7,7 +7,10 @@ import { IISBNProp } from '../interfaces/interfacesComponents'
 export function SectionReadingList() {
   const { removeBookFromReadingList } = useLibraryReducer()
   const { library, readingList } = useAppSelector(state => state.librariesReducer)
-  const { isVisibleSection, isVisibleListBook } = useAppSelector(state => state.visibleListBookReducer)
+  const {
+    isVisibleSection,
+    isVisibleListBook
+  } = useAppSelector(state => state.visibleListBookReducer)
   
   const booksOfTheReadingList = readingList.map(ISBN =>
     library.find(({ book }) => book.ISBN === ISBN)
@@ -28,11 +31,6 @@ export function SectionReadingList() {
           isVisibleListBook ? "right-0" : "-right-full"
         } sm:max-w-[450px] 2xl:fixed 2xl:right-auto 2xl:drop-shadow-none 2xl:border-l-2 2xl:border-l-slate-800`}
       >
-      {/* <div
-        className={`absolute w-full max-w-[650px] top-0 bottom-0 bg-[#111827] ${
-          isVisibleListBook ? "right-0" : "-right-full"
-        } listBooks drop-shadow-[-16px_3px_38px_black] sm:w-[400px]`}
-      > */}
         <header className="flex items-center flex-row justify-between mx-8 sm:justify-end sm:flex-row-reverse sm:mx-2 2xl:justify-between 2xl:flex-row 2xl:mx-10">
           <h2 className="text-2xl text-center font-bold my-5">
             Lista de lectura
@@ -41,9 +39,6 @@ export function SectionReadingList() {
           <div className="sm:-translate-x-7 2xl:-translate-x-0">
             <BtnLibro />
           </div>
-          {/* <div className="absolute 2xl:relative left-auto sm:left-[-5%] 2xl:left-auto right-5 sm:right-auto 2xl:right-auto top-[3%] 2xl:top-auto">
-            <BtnLibro />
-          </div> */}
         </header>
 
         <ul className="flex flex-wrap justify-center gap-3 mx-3 my-3 readingList overflow-auto scrollApp">
