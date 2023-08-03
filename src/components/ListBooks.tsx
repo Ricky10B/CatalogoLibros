@@ -21,7 +21,10 @@ export function ListBooks () {
   }, [librariesFiltered.length])
 
   return (
-    <ul className='grid grid-cols-[repeat(auto-fit,minmax(min(350px,100%),1fr))] gap-4 w-[97%] mx-5 mb-4'>
+    <ul
+      className='grid grid-cols-[repeat(auto-fit,minmax(min(350px,100%),1fr))] gap-4 w-full px-5 mb-4'
+      data-test='listBooks'
+    >
       {librariesFiltered.map(({ book }) => {
         const { ISBN } = book
 
