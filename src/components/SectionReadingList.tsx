@@ -25,6 +25,7 @@ export function SectionReadingList() {
       className={`fixed 2xl:relative ${
         isVisibleSection ? "block" : "hidden 2xl:block"
       } inset-0 bg-[rgba(156,163,175,.4)] 2xl:bg-transparent`}
+      id="sectionReadingList"
     >
       <div
         className={`absolute w-full left-auto max-w-[650px] top-0 bottom-0 bg-[#111827] listBooks drop-shadow-[-16px_3px_38px_black] 2xl:ml-10 ${
@@ -36,7 +37,10 @@ export function SectionReadingList() {
             Lista de lectura
           </h2>
 
-          <div className="sm:-translate-x-7 2xl:-translate-x-0">
+          <div
+            className="sm:-translate-x-7 2xl:-translate-x-0"
+            data-test="btnLibroClose"
+          >
             <BtnLibro />
           </div>
         </header>

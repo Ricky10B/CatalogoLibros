@@ -36,7 +36,9 @@ export function FilterGenre () {
         ))}
       </select>
 
-      <div className='flex flex-col gap-1 md:flex-row md:gap-3 [&>p]:font-bold [&>p]:text-gray-400 [&>p>span]:text-gray-100 mb-1 mt-3'>
+      <div
+        className='flex flex-col gap-1 md:flex-row md:gap-3 [&>p]:font-bold [&>p]:text-gray-400 [&>p>span]:text-gray-100 mb-1 mt-3'
+      >
         <p>Libros Disponibles: <span>{ available - readingList }</span></p>
         <p>Libros en la lista de lectura: <span>{ readingList }</span></p>
         {

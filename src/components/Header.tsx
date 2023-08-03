@@ -8,7 +8,10 @@ export function Header () {
         <h1 className='text-center text-2xl sm:text-5xl'>
           Catalogo de libros
         </h1>
-        <div className="block 2xl:hidden">
+        <div
+          className="block 2xl:hidden"
+          data-test='btnLibroOpen'
+        >
           <BtnLibro />
         </div>
       </div>

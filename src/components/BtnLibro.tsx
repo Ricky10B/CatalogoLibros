@@ -40,7 +40,7 @@ export function BtnLibro () {
   }
 
   return (
-    <div
+    <button
       className={`bg-[var(--color-btn-cards)] w-10 h-10 p-[5px] rounded-full cursor-pointer relative`}
       onClick={handleVisibleListBook}
     >
@@ -50,6 +50,6 @@ export function BtnLibro () {
         </span>
       </div>
       <Book />
-    </div>
+    </button>
   )
 }
