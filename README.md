@@ -5,7 +5,23 @@ Una prueba técnica para desarrollar un catalogo de libros propuesta por midudev
 url del proyecto desplegado: https://catalogo-libros.vercel.app/
 
 ### Iniciar el proyecto
+
 ```bash
 npm install ó npm i
 npm run dev
+```
+
+## Ejecutar tests e2e
+
+Levantar aplicación en modo testing
+
+```bash
+npm run start-dev
+```
+
+Ejecutar tests
+
+```bash
+npm run cypress:open # Test visuales
+npm run cypress:e2e # Tests en modo headless
 ```
