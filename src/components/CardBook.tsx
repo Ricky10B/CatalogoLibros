@@ -28,7 +28,7 @@ export function CardBook ({
 
   return (
     <li className='max-w-[700px] bg-[#1f2937] rounded-md grid grid-rows-[250px_min-content] sm:grid-rows-[330px_min-content] shadow-2xl'>
-      <div className={`flex ${bookInReadingList && 'opacity-50 blur-[.5px]'}`}>
+      <div className={`flex ${bookInReadingList && 'opacity-50 blur-[.5px]'}`} id='containerInfoBook'>
         <picture>
           <img src={cover} className='w-[150px] max-w-[150px] h-[250px] max-h-[250px] sm:w-[200px] sm:max-w-[200px] sm:h-[330px] sm:max-h-[330px] block object-cover aspect-square rounded-tl-md' />
         </picture>
@@ -52,7 +52,7 @@ export function CardBook ({
         </div>
       </div>
       <button
-        className={`${bookInReadingList ? 'bg-[var(--color-btn-remove-card)]' : 'bg-[var(--color-btn-cards)]'} py-2 rounded-b-md font-medium hover:bg-[var(${bookInReadingList ? 'bg-[var(--color-btn-remove-card-hover)]' : 'bg-[var(--color-btn-cards-hover)]'}`}
+        className={`${bookInReadingList ? 'bg-[var(--color-btn-remove-card)]' : 'bg-[var(--color-btn-cards)]'} py-2 rounded-b-md font-medium hover:${bookInReadingList ? 'bg-[var(--color-btn-remove-card-hover)]' : 'bg-[var(--color-btn-cards-hover)]'}`}
         onClick={() =>
           bookInReadingList
             ? removeBookFromReadingList({ ISBN })

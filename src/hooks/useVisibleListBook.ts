@@ -7,7 +7,9 @@ import {
 export function useVisibleListBook () {
   const dispatch = useAppDispatch()
 
-  const setVisible = ({ isSection, visible }: { isSection: boolean, visible: boolean }) => {
+  const setVisible = (
+    { isSection, visible }: { isSection: boolean, visible: boolean }
+  ) => {
     if (isSection) {
       dispatch(changeVisibleSection({ visible }))
     } else {

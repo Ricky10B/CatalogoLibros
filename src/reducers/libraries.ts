@@ -74,7 +74,11 @@ export const libraryReducer = createSlice({
     setCountBooksFilters: (state, action: PayloadAction<ICountBooksFiltered>) => {
       const { countBookFiltered } = action.payload
 
-      state.countBooks.filterForGenre = countBookFiltered
+      const booksFilters = countBookFiltered < 0
+        ? 0
+        : countBookFiltered
+
+      state.countBooks.filterForGenre = booksFilters
     }
   }
 })

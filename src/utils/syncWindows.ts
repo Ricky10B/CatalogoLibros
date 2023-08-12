@@ -1,24 +1,5 @@
-import { IISBNProp } from "../interfaces/interfacesComponents"
-
-interface SyncWindowsLibraryProp {
-  addBookToReadingList: ({ ISBN }: IISBNProp) => void,
-  removeBookFromReadingList: ({ ISBN }: IISBNProp) => void
-}
-
-interface SyncWindowsFiltersProps {
-  handleNewGenre: ({ genre }: { genre: string }) => void
-}
-
-interface DataWindowsLibraryProps extends SyncWindowsLibraryProp {
-  totalNewValues: number,
-  totalOldValues: number,
-  newReadingList: string[],
-  oldReadingList: string[]
-}
-
-interface DataWindowsFiltersProps extends SyncWindowsFiltersProps {
-  genre: string
-}
+import { syncWindowsLibrary, SyncWindowsLibraryProp } from './syncWindowsLibrary'
+import { syncWindowsFilters, SyncWindowsFiltersProps } from './syncWindowsFilters'
 
 interface ISyncWindows extends SyncWindowsFiltersProps, SyncWindowsLibraryProp {}
 
@@ -28,7 +9,6 @@ export function syncWindows ({
   removeBookFromReadingList
 }: ISyncWindows) {
   window.addEventListener('storage', event => {
-    console.log(event);
     const { key, newValue, oldValue } = event
 
     const dataOldValue = JSON.parse(oldValue || '{}')
@@ -56,36 +36,4 @@ export function syncWindows ({
       })
     }
   })
-}
-
-export function syncWindowsFilters ({
-  handleNewGenre,
-  genre
-}: DataWindowsFiltersProps) {
-  handleNewGenre({ genre })
-}
-
-export function syncWindowsLibrary ({
-  addBookToReadingList,
-  removeBookFromReadingList,
-  totalNewValues,
-  totalOldValues,
-  newReadingList,
-  oldReadingList
-}: DataWindowsLibraryProps) {
-  if (totalOldValues < totalNewValues) {
-    const [ISBN] = newReadingList.filter((ISBNOfBook: string) =>
-      !oldReadingList.includes(ISBNOfBook)
-    )
-    
-    addBookToReadingList({ ISBN })
-  }
-
-  if (totalOldValues > totalNewValues) {
-    const [ISBN] = oldReadingList.filter((ISBNOfBook: string) =>
-      !newReadingList.includes(ISBNOfBook)
-    )
-    
-    removeBookFromReadingList({ ISBN })
-  }
 }

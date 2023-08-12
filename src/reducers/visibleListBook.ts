@@ -5,12 +5,17 @@ interface visibleListBook {
   visible: boolean
 }
 
-const DEFAULT_STATE = {
+interface InitialStateListBook {
+  isVisibleSection: boolean
+  isVisibleListBook: boolean
+}
+
+const DEFAULT_STATE: InitialStateListBook = {
   isVisibleSection: false,
   isVisibleListBook: false
 }
 
-const initialState = (() => {
+const initialState: InitialStateListBook = (() => {
   const dataStore = localStorage.getItem('__REDUX__STORE__visibleList')
   return dataStore ? JSON.parse(dataStore) : DEFAULT_STATE
 })()
@@ -38,6 +43,9 @@ export const visibleListReducer = createSlice({
   }
 })
 
-export const { changeVisibleSection, changeVisibleListBook } = visibleListReducer.actions
+export const {
+  changeVisibleSection,
+  changeVisibleListBook
+} = visibleListReducer.actions
 
 export default visibleListReducer.reducer
