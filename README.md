@@ -11,12 +11,16 @@ npm install ó npm i
 npm run dev
 ```
 
-## Ejecutar tests e2e
+## Tests
 
-Levantar aplicación en modo testing
+### Tests e2e
+
+La aplicación debe estar ejecutándose para que cypress pueda realizar los tests.
+
+Puedes ejecutar la aplicación con el siguiente comando
 
 ```bash
-npm run start-dev
+npm run dev
 ```
 
 Ejecutar tests
@@ -24,4 +28,14 @@ Ejecutar tests
 ```bash
 npm run cypress:open # Test visuales
 npm run cypress:e2e # Tests en modo headless
+```
+
+### Tests unitarios y de integración
+
+Tests con react-testing-library y con jest
+
+Ejecutar tests
+
+```bash
+npm test
 ```
